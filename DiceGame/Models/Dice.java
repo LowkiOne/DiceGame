@@ -2,13 +2,17 @@ package Models;
 
 public class Dice {
     private int value;
-    private int sides;
+    private DiceSides sides;
 
     public int getValue() {
         return value;
     }
 
-    public int getSides() {
+    public Dice(DiceSides sides) {
+        this.sides = sides;
+    }
+
+    public DiceSides getSides() {
         return sides;
     }
 }
