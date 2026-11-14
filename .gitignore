@@ -1,0 +1,14 @@
+# Build output
+target/
+*.class
+
+# VS Code / Java language server
+.vscode/launch.json
+.classpath
+.project
+.settings/
+bin/
+
+# OS files
+.DS_Store
+Thumbs.db
