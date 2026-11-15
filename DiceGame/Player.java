@@ -45,25 +45,42 @@ public class Player {
 
         int value = dice.getValue();
 
-        if (value <= 0) throw new IllegalStateException("Dice has not been rolled yet");
+        if (value <= 0) 
+            throw new IllegalStateException("Dice has not been rolled yet");
 
         return value;
     }
 
     private void requireDice(Die dice) {
-        if (dice == null) throw new IllegalArgumentException("Dice cannot be null");
+        if (dice == null) 
+            throw new IllegalArgumentException("Dice cannot be null");
     }
 
     public int increaseScore(int score, int maxScore) {
-        if (score < 0) throw new IllegalArgumentException("Score cannot be negative");
+        if (score < 0) 
+            throw new IllegalArgumentException("Score cannot be negative");
 
-        if (maxScore < 1) throw new IllegalArgumentException("Max Score must be at least 1");
+        if (maxScore < 1) 
+            throw new IllegalArgumentException("Max Score must be at least 1");
 
-        if (score > maxScore) throw new IllegalArgumentException("Score cannot be higher than cast die");
+        if (score > maxScore) 
+            throw new IllegalArgumentException("Score cannot be higher than cast die");
 
-        if (score == maxScore) throw new IllegalArgumentException("Score has already reached the max score (" + maxScore + ")");
+        if (score == maxScore) 
+            throw new IllegalArgumentException("Score has already reached the max score (" + maxScore + ")");
 
         return score + 1;
+    }
+
+    public void addDie(int numberOfSides) {
+        for (DiceSides sides : DiceSides.values()) {
+            if (sides.getValue() == numberOfSides) {
+                die = new Die(sides);
+                return;
+            }
+        }
+
+        throw new IllegalArgumentException("Die sides should be 4, 6, 8, 10");
     }
 
      private String validateName(String input) {
@@ -90,5 +107,4 @@ public class Player {
 
         return cleaned;
     }
-
 }
