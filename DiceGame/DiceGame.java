@@ -1,31 +1,27 @@
 import java.util.Scanner;
 import java.util.function.Function;
 
-import Models.Dice;
+import Models.Die;
 import Models.Player;
 import Models.DiceSides;
-import Services.PlayerService;
-import Services.DiceService;
 
 public class DiceGame {
-    private static final PlayerService playerService = new PlayerService();
+    private static final Player player = new Player();
     private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        DiceService diceService = new DiceService();
+        askName();
+        Die dice = new Die(DiceSides.TEN);
+        player.rollDice(dice);
 
-        //askName();
-        Dice dice = new Dice(DiceSides.TEN);
-        int result = diceService.rollDice(dice);
+        int getDie = player.getDieValue(dice);
+        String getName = player.getName();
 
-        int getDie = diceService.getDieValue(dice);
-
-        System.out.println(getDie);
+        System.out.println(getName + getDie);
     }
 
     private static String askName() {
         System.out.println("Welcome to the DiceGame!");
-        Player temp = new Player(new Dice(DiceSides.SIX));
-        return askNameUntilValid("Enter your name: ", text -> playerService.input(temp, text));
+        return askNameUntilValid("Enter your name: ", text -> player.input(text));
     }
 
     private static <T> T askNameUntilValid(String prompt, Function<String, T> parser) {
