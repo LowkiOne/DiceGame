@@ -15,4 +15,8 @@ public class Dice {
     public DiceSides getSides() {
         return sides;
     }
+
+    public void setValue(int value) {
+        this.value = value;
+    }   
 }
