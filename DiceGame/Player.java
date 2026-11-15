@@ -1,5 +1,3 @@
-package Models;
-
 public class Player {
     private String name;
     private int points;

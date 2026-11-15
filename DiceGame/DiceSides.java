@@ -1,5 +1,3 @@
-package Models;
-
 public enum DiceSides {
     FOUR(4),
     SIX(6),
