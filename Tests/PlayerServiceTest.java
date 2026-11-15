@@ -13,29 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerServiceTest {
     private PlayerService service;
-    private FakeDice dice;
+    private Dice dice;
     private Player player;
-    private static class FakeDice extends Dice {
-        private int value;
 
-        FakeDice() {
-            super(DiceSides.SIX);
-        }
-
-        void setValue(int value) {
-            this.value = value;
-        }
-
-        @Override
-        public int getValue() {
-            return value;
-        }
-    }
-    
     @BeforeEach
     void setUp() {
         service = new PlayerService();
-        dice = new FakeDice();
+        dice = new Dice(DiceSides.FOUR);
         player = new Player(dice);
     }
 

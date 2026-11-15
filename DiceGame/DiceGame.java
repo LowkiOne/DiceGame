@@ -5,12 +5,21 @@ import Models.Dice;
 import Models.Player;
 import Models.DiceSides;
 import Services.PlayerService;
+import Services.DiceService;
 
 public class DiceGame {
     private static final PlayerService playerService = new PlayerService();
     private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        askName();
+        DiceService diceService = new DiceService();
+
+        //askName();
+        Dice dice = new Dice(DiceSides.TEN);
+        int result = diceService.rollDice(dice);
+
+        int getDie = diceService.getDieValue(dice);
+
+        System.out.println(getDie);
     }
 
     private static String askName() {
