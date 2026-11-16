@@ -95,7 +95,7 @@ public class Player {
         if(cleaned.length() > 15)
             throw new IllegalArgumentException("Name cannot be longer than 15 characters");
 
-        if(!cleaned.matches("[\\p{L}\\p{N} _-]+"))
+        if(!cleaned.matches("\\p{L}+"))
             throw new IllegalArgumentException("Name contains invalid characters, must be only letters");
 
         return cleaned;
