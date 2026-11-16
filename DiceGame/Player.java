@@ -6,6 +6,8 @@ public class Player {
     public Player(Die die) {
         if(die == null)
             throw new IllegalArgumentException("Dice cannot be null");
+
+        this.die = die;
     }
 
     public Player() {
