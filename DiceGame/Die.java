@@ -32,10 +32,6 @@ public class Die {
         return sides;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
-
     public void roll() {
         value = random.nextInt(sides.getValue()) + 1;
     }

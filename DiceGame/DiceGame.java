@@ -8,7 +8,7 @@ public class DiceGame {
     }
 
     private static void playTheGame() {
-        String name = input.askName(player::input);
+        input.askName(player::input);
         player.addDie(input.askDiceSides());
         int sides = player.getDie().getSides().getValue();
         int rolls = input.askAmountOfRolls();
@@ -38,6 +38,6 @@ public class DiceGame {
         }
 
         System.out.println();
-        System.out.println(name + "! Game finished! Total points: " + player.getPoints() + " of " + rolls);
+        System.out.println(player.getName() + "! Game finished! Total points: " + player.getPoints() + " of " + rolls);
     }
 }

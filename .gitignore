@@ -12,3 +12,6 @@ bin/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Files Claude sent to this folder
+Claude outputs/
